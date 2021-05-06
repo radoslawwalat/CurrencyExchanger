@@ -3,10 +3,8 @@
 GET http://localhost:8080/convert?amount=100&baseCurrency=USD&targetCurrency=EUR
 
 ###
-# curl --header "Content-Type: application/json"
-#  --request POST
-#  --data '{"amount": 1000, "baseCurrency": "AUD", "targetCurrency": "USD"}'
-#  http://localhost:8080/convert
+# curl --header "Content-Type: application/json" --request POST --data '{"amount": 1000, "baseCurrency": "AUD", "targetCurrency": "USD"}' http://localhost:8080/convert
+
 POST http://localhost:8080/convert
 Content-Type: application/json
 

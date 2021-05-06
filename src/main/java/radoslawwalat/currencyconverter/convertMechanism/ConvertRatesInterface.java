@@ -1,5 +1,7 @@
 package radoslawwalat.currencyconverter.convertMechanism;
 
+import radoslawwalat.currencyconverter.model.NbpApiRepository;
+
 public interface ConvertRatesInterface {
 
 

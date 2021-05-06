@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import radoslawwalat.currencyconverter.dto.RateDto;
+import radoslawwalat.currencyconverter.model.NbpApiRepository;
 
 import java.lang.invoke.MethodHandles;
 import java.time.LocalDateTime;
