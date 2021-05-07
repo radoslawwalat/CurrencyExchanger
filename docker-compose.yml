@@ -1,0 +1,26 @@
+version: '3.3'
+services:
+  database:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass123
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass123
+      - MYSQL_DATABASE=currencyconverterdb
+    ports:
+      - 3306:3306
+  currencyconverter-docker:
+    image: converter-container
+    ports:
+      - 8082:8080
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - database
+    environment:
+      - DATABASE_HOST=database
+      - DATABASE_USER=user
+      - DATABASE_PASSWORD=pass123
+      - DATABASE_NAME=currencyconverterdb
+      - DATABASE_PORT=3306
