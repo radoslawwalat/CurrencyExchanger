@@ -1,0 +1,9 @@
+FROM haproxy:2.2.4
+
+RUN apt-get update && apt-get install -y \
+    inetutils-ping \
+    curl && \
+    mkdir /srv/logs && \
+    touch /srv/logs/haproxy
+
+COPY ./haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg

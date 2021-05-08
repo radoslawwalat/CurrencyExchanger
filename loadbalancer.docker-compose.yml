@@ -1,0 +1,92 @@
+version: '3.4'
+
+networks:
+  frontend:
+  backend:
+    driver: bridge
+
+services:
+  haproxy:
+    build:
+      network: host
+      context: ./
+      dockerfile: HAProxyDockerfile
+
+    container_name: haproxy
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - web1_app
+      - web2_app
+    networks:
+      - frontend
+
+  database:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass123
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass123
+      - MYSQL_DATABASE=currencyconverterdb
+    networks:
+      - backend
+
+
+  web1_app:
+    image: spring-boot-converter
+    container_name: web1_app
+    build:
+      network: host
+      context: ./
+      dockerfile: Dockerfile
+
+    depends_on:
+      - database
+    environment:
+      - DATABASE_HOST=database
+      - DATABASE_USER=user
+      - DATABASE_PASSWORD=pass123
+      - DATABASE_NAME=currencyconverterdb
+      - DATABASE_PORT=3306
+    networks:
+      - frontend
+      - backend
+
+  web2_app:
+    image: spring-boot-converter
+    container_name: web2_app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - database
+    environment:
+      - DATABASE_HOST=database
+      - DATABASE_USER=user
+      - DATABASE_PASSWORD=pass123
+      - DATABASE_NAME=currencyconverterdb
+      - DATABASE_PORT=3306
+    networks:
+      - frontend
+      - backend
+
+  web3_app:
+    image: spring-boot-converter
+    container_name: web3_app
+    build:
+      network: host
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - database
+    environment:
+      - DATABASE_HOST=database
+      - DATABASE_USER=user
+      - DATABASE_PASSWORD=pass123
+      - DATABASE_NAME=currencyconverterdb
+      - DATABASE_PORT=3306
+    networks:
+      - frontend
+      - backend
