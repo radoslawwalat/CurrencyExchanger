@@ -1,7 +1,7 @@
 # REST CurrencyExchanger
 
 ## Opis 
-Aplikacja przeliczająca kursy walut przygotowana w Spring-Boot na cele zadania rekrutacyjnego. Aktualne kursy walut są pobierane z API Nbp przy uruchamianiu aplikacji oraz są odświerzane raz dziennie. Dostęp do usługi można nawiązać przez metody GET i POST.
+Aplikacja przeliczająca kursy walut przygotowana w Spring-Boot na cele zadania rekrutacyjnego. Aktualne kursy walut są pobierane z API Nbp przy uruchamianiu aplikacji oraz są odświeżane raz dziennie. Dostęp do usługi można nawiązać przez metody GET i POST.
 
 # Uruchamianie 
 Żeby uruchomić aplikację należy znajdować się na ścieżce projektu i wywołać polecenie 
