@@ -47,6 +47,4 @@ Po wywołaniu polecenia:
 Uruchamiają się trzy serwisy aplikacji działające na localhost:80, baza danych która jest połączona ze wszystkimi oraz serwis HAProxy który powinien zachowywać się jak LoadBalancer.
 Wywołując `curl -X GET --location "http://localhost:80/sleep"` można zasymulować 30 sekundowe opóźnienie od jednego z serwisów aplikacji. 
 
-Niestety nie rozumiem dlaczego HAProxy raz działa a raz nie. Poświęciłem 12 godzin na dokładne przestudiowanie wątku i aktualnie otworzyłem ticket na Reddicie oraz StackOverflow, myślę że pare zdań z osobą bardziej doświadczoną w tym temacie pozwoli mi uzyskać w 100% działającą funkcjonalność w przyszłości.
-
 
