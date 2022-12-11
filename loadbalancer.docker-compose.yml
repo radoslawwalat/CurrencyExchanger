@@ -19,6 +19,7 @@ services:
     depends_on:
       - web1_app
       - web2_app
+      - web3_app
     networks:
       - frontend
 

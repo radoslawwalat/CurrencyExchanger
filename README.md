@@ -44,7 +44,7 @@ Po wywołaniu polecenia:
 
 `docker-compose -f loadbalancer.docker-compose.yml up --build -d` <br>
 
-Uruchamiają się trzy serwisy aplikacji działające na localhost:80, baza danych która jest połączona ze wszystkimi oraz serwis HAProxy który powinien zachowywać się jak LoadBalancer.
-Wywołując `curl -X GET --location "http://localhost:80/sleep"` można zasymulować 30 sekundowe opóźnienie od jednego z serwisów aplikacji. 
+Uruchamiają się trzy serwisy aplikacji działające na localhost:80, baza danych która jest połączona ze wszystkimi oraz serwis HAProxy, który zachowuje się jak LoadBalancer.
+Wywołując `curl -X GET --location "http://localhost:80/sleep"` można zasymulować 30 sekundowe opóźnienie od jednego z serwisów aplikacji. Następnie  wywołując kilukrotnie `curl -X GET --location "http://localhost:80/list"` zawsze otrzymujemy odpowiedź, ponieważ Haproxy automatycznie wykryło i wyłączyło uśpiony serwis z puli dostępnych nodów, który w innym przypadku ładowałby odpowiedź 30 sekund. 
 
 
